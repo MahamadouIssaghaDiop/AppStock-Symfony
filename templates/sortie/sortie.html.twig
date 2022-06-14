@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sortie</title>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{{ asset('Prototype/Scss/Sortie.css') }}"/>
+<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+<!-- Custom fonts for this template-->
+    <link href="{{ asset('template/sb_bootstrap/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{{ asset('template/sb_bootstrap/css/sb-admin-2.min.css') }}"rel="stylesheet">
+<script id="applicationScript" type="text/javascript" src="Sscript/Sortie.js"></script>
+</head>
+<body>
+<div id="Sortie">
+	<img id="Calque_1_h" src="{{ asset('Prototype/Simage/Calque_1_h.png') }}" srcset="{{ asset('Prototype/Simage/Calque_1_h.png 1x, Simage/Calque_1_h@2x.png 2x') }}">
+		
+	<div id="Page_sortie_w">
+		<div id="menu_x">
+			<svg class="Rectangle_1_z">
+				<linearGradient id="Rectangle_1_z" spreadMethod="pad" x1="0.5" x2="0.5" y1="1" y2="0">
+					<stop offset="0" stop-color="#28343b" stop-opacity="1"></stop>
+					<stop offset="1" stop-color="#004a95" stop-opacity="1"></stop>
+				</linearGradient>
+				<rect id="Rectangle_1_z" rx="75" ry="75" x="0" y="0" width="1620" height="144">
+				</rect>
+			</svg>
+			<div id="Logo_baa">
+				<span>Logo</span>
+			</div>
+			<img id="logo4-b_baa" src="{{ asset('Prototype/Simage/logo4-b_baa.png') }}" srcset="{{ asset('Prototype/Simage/logo4-b_baa.png 1x, Simage/logo4-b_baa@2x.png 2x') }}">
+
+			<a class="collapse-item" href="{{ path('accueil')}}">	
+			<div onclick="application.goToTargetView(event)" id="Acceuil_baa">
+				<span>Acceuil</span>
+			</div>
+			</a>
+			{% if is_granted('ROLE_VENDEUR') %}
+			<a class="collapse-item" href="{{ path('sortie_liste')}}">
+			<div onclick="application.goToTargetView(event)" id="Produit_baa">
+				<span>Gestion Vente</span>
+			</div>
+			</a>
+			{% endif %}
+		{% if is_granted('ROLE_GESTION_STOCK') %}
+			<a class="collapse-item" href="{{ path('produit_liste')}}">
+			<div onclick="application.goToTargetView(event)" id="Produit_baa">
+				<span>Produit</span>
+			</div>
+			</a>
+
+			<a class="collapse-item" href="{{ path('categorie_liste')}}">
+			<div onclick="application.goToTargetView(event)" id="Categorie_baa">
+				<span>Categorie</span>
+			</div>
+			</a>
+		{% endif %}
+			<svg class="Rectangle_Profil_">
+				<rect id="Rectangle_Profil_" rx="20" ry="20" x="-5" y="-10" width="180" height="100">
+				</rect>
+			</svg>
+			<div id="Profil_baa">
+				{% if app.user %}
+				<span>{{ app.user.nom }}<br>{{ app.user.prenom }}</span>
+			{% endif %}
+			</div>
+			<svg class="Rectangle_Log_out_bab">
+				<rect onclick="application.goToTargetView(event)" id="Rectangle_Log_out_bab" rx="20" ry="20" x="0" y="0" width="199" height="50">
+				</rect>
+			</svg>
+
+			{# button Logout #}
+			<a href="{{path('app_logout')}}">
+			<div id="Log_out__bac">
+				<span>Log out</span><br/>
+			</div>
+			</a>
+
+		</div>
+		<div id="Sortie_body_bad">
+			<div id="Screenshot_2022-05-31_132950_bae">
+				<img id="Screenshot_2022-05-31_132950_baf" src="{{ asset('Prototype/Simage/Screenshot_2022-05-31_132950_baf.png') }}" srcset="{{ asset('Prototype/Simage/Screenshot_2022-05-31_132950_baf.png 1x, Simage/Screenshot_2022-05-31_132950_baf@2x.png 2x') }}">
+					
+				<img id="Clip_bag" src="{{ asset('Prototype/Simage/Clip_bag.png') }}" srcset="{{ asset('Prototype/Simage/Clip_bag.png 1x, Simage/Clip_bag@2x.png 2x') }}">
+					
+				</svg>
+			</div>
+			<div id="sous_menu_bah">
+				<svg class="Rectanglegauche_sous_menu_baj">
+					<linearGradient id="Rectanglegauche_sous_menu_baj" spreadMethod="pad" x1="0.5" x2="0.5" y1="1" y2="0">
+						<stop offset="0" stop-color="#192530" stop-opacity="1"></stop>
+						<stop offset="1" stop-color="#1b606f" stop-opacity="1"></stop>
+					</linearGradient>
+					<rect id="Rectanglegauche_sous_menu_baj" rx="0" ry="0" x="0" y="0" width="254" height="659">
+					</rect>
+				</svg>
+				{% if is_granted('ROLE_GESTION_STOCK') %}
+				<svg class="Rectangle_entree_bak">
+					<rect onclick="application.goToTargetView(event)" id="Rectangle_entree_bak" rx="0" ry="0" x="0" y="0" width="228" height="53">
+					</rect>
+				</svg>
+				<div id="Forme_entree_bal">
+					<svg class="Forme_entree_bam" viewBox="352.999 3791.999 49.984 52.988">
+						<path id="Forme_entree_bam" d="M 352.9988098144531 3842.0712890625 C 352.9988098144531 3839.624267578125 352.9988098144531 3796.67578125 352.9988098144531 3794.987548828125 C 352.9988098144531 3792.79833984375 355.4229125976562 3791.16943359375 357.8183898925781 3792.45068359375 C 359.7384948730469 3793.475830078125 398.1080932617188 3814.1748046875 401.3829040527344 3815.9453125 C 403.53369140625 3817.108154296875 403.4974060058594 3819.881591796875 401.3829040527344 3821.045654296875 C 399.0256042480469 3822.343994140625 360.5094909667969 3843.148681640625 357.72021484375 3844.59375 C 355.6777954101562 3845.654296875 352.9988098144531 3844.48291015625 352.9988098144531 3842.0712890625 Z">
+						</path>
+					</svg>
+					<svg class="Stroke_Effect_ban" viewBox="352.999 3791.999 49.984 52.988">
+						<path id="Stroke_Effect_ban" d="M 352.9988098144531 3842.0712890625 C 352.9988098144531 3839.624267578125 352.9988098144531 3796.67578125 352.9988098144531 3794.987548828125 C 352.9988098144531 3792.79833984375 355.4229125976562 3791.16943359375 357.8183898925781 3792.45068359375 C 359.7384948730469 3793.475830078125 398.1080932617188 3814.1748046875 401.3829040527344 3815.9453125 C 403.53369140625 3817.108154296875 403.4974060058594 3819.881591796875 401.3829040527344 3821.045654296875 C 399.0256042480469 3822.343994140625 360.5094909667969 3843.148681640625 357.72021484375 3844.59375 C 355.6777954101562 3845.654296875 352.9988098144531 3844.48291015625 352.9988098144531 3842.0712890625 Z">
+						</path>
+					</svg>
+				</div>
+			
+				<a class="collapse-item" href="{{ path('entree_liste')}}">
+				<div onclick="application.goToTargetView(event)" id="Entree_bao">
+					<span>Entree</span>
+				</div>
+				</a>
+			{% endif %}
+				<img id="img_entree_bap" src="{{ asset('Prototype/Simage/img_entree_bap.png') }}" srcset="{{ asset('Prototype/Simage/img_entree_bap.png 1x, Simage/img_entree_bap@2x.png 2x') }}">
+			{% if is_granted('ROLE_GESTION_STOCK') %}		
+				<svg class="Rectangle_sortie_baq">
+					<rect id="Rectangle_sortie_baq" rx="0" ry="0" x="0" y="0" width="228" height="53">
+					</rect>
+				</svg>
+				<div id="Forme_sortie_bar">
+					<svg class="Forme_sortie_bas" viewBox="352.999 4095.999 49.984 52.988">
+						<path id="Forme_sortie_bas" d="M 352.9988098144531 4146.0712890625 C 352.9988098144531 4143.62451171875 352.9988098144531 4100.67578125 352.9988098144531 4098.9873046875 C 352.9988098144531 4096.79833984375 355.4229125976562 4095.169921875 357.8183898925781 4096.4501953125 C 359.7384948730469 4097.4755859375 398.1080932617188 4118.1748046875 401.3829040527344 4119.9453125 C 403.53369140625 4121.1083984375 403.4974060058594 4123.88134765625 401.3829040527344 4125.04541015625 C 399.0256042480469 4126.34375 360.5094909667969 4147.1484375 357.72021484375 4148.59423828125 C 355.6777954101562 4149.65380859375 352.9988098144531 4148.48291015625 352.9988098144531 4146.0712890625 Z">
+						</path>
+					</svg>
+					<svg class="Stroke_Effect_bat" viewBox="352.999 4095.999 49.984 52.988">
+						<path id="Stroke_Effect_bat" d="M 352.9988098144531 4146.0712890625 C 352.9988098144531 4143.62451171875 352.9988098144531 4100.67578125 352.9988098144531 4098.9873046875 C 352.9988098144531 4096.79833984375 355.4229125976562 4095.169921875 357.8183898925781 4096.4501953125 C 359.7384948730469 4097.4755859375 398.1080932617188 4118.1748046875 401.3829040527344 4119.9453125 C 403.53369140625 4121.1083984375 403.4974060058594 4123.88134765625 401.3829040527344 4125.04541015625 C 399.0256042480469 4126.34375 360.5094909667969 4147.1484375 357.72021484375 4148.59423828125 C 355.6777954101562 4149.65380859375 352.9988098144531 4148.48291015625 352.9988098144531 4146.0712890625 Z">
+						</path>
+					</svg>
+				</div>
+			
+				<a class="collapse-item" href="{{ path('sortie_liste')}}">
+				<div onclick="application.goToTargetView(event)" id="Sortie_bau">
+					<span>Sortie</span>
+				</div>
+				</a>
+			{% endif %}
+				<img id="imd_sortie_bav" src="{{ asset('Prototype/Simage/imd_sortie_bav.png') }}" srcset="{{ asset('Prototype/Simage/imd_sortie_bav.png 1x, Simage/imd_sortie_bav@2x.png 2x') }}">
+					
+			</div>
+			<div id="User_baw">
+				<svg class="Rectangle_User_info_bay">
+					<linearGradient id="Rectangle_User_info_bay" spreadMethod="pad" x1="0.097" x2="0.903" y1="1" y2="0">
+						<stop offset="0" stop-color="#19252f" stop-opacity="1"></stop>
+						<stop offset="1" stop-color="#20494d" stop-opacity="1"></stop>
+					</linearGradient>
+					<rect id="Rectangle_User_info_bay" rx="0" ry="0" x="0" y="0" width="254" height="160">
+					</rect>
+				</svg>
+				<div id="User_Name_baz">
+					<span>User</span><br/><span>Name</span>
+				</div>
+			</div>
+			<div id="en_tte__ba">
+				<svg class="Rectangle_haut_en_tte__bba">
+					<linearGradient id="Rectangle_haut_en_tte__bba" spreadMethod="pad" x1="0.5" x2="0.5" y1="1" y2="0">
+						<stop offset="0" stop-color="#18202b" stop-opacity="1"></stop>
+						<stop offset="1" stop-color="#214f53" stop-opacity="1"></stop>
+					</linearGradient>
+					<rect id="Rectangle_haut_en_tte__bba" rx="0" ry="0" x="0" y="0" width="1367" height="160">
+					</rect>
+				</svg>
+				<svg class="Rectangle_3_ba">
+					<rect id="Rectangle_3_ba" rx="0" ry="0" x="0" y="0" width="527" height="54">
+					</rect>
+				</svg>
+				<div id="Recherche_ba">
+					<span>Recherche</span>
+				</div>
+				<div id="Gestion_des_Produits_ba">
+					<span>Gestion des Ventes</span>
+				</div>
+				<svg class="Forme_1_ba" viewBox="1307.998 3458.994 47.003 45.004">
+					<path id="Forme_1_ba" d="M 1354.325805664062 3502.05810546875 C 1353.137329101562 3504.1005859375 1350.773193359375 3504.613525390625 1349.053100585938 3503.197509765625 C 1349.053100585938 3503.197509765625 1333.47705078125 3490.3984375 1333.47705078125 3490.3984375 C 1332.374389648438 3489.495361328125 1331.8037109375 3488.02197265625 1331.846069335938 3486.541748046875 C 1329.839721679688 3489.096435546875 1327.204223632812 3490.812744140625 1324.251953125 3491.450439453125 C 1320.625854492188 3492.235595703125 1316.963745117188 3491.296142578125 1313.941040039062 3488.8125 C 1310.916748046875 3486.32861328125 1308.887084960938 3482.593017578125 1308.226318359375 3478.289306640625 C 1307.565185546875 3473.983642578125 1308.353881835938 3469.63330078125 1310.44775390625 3466.040283203125 C 1314.7724609375 3458.622314453125 1323.37451171875 3456.762451171875 1329.62451171875 3461.89599609375 C 1335.297119140625 3466.559814453125 1337.110107421875 3475.40869140625 1334.161376953125 3482.551513671875 C 1335.3134765625 3481.976318359375 1336.679809570312 3482.089111328125 1337.7880859375 3482.998291015625 C 1337.7880859375 3482.998291015625 1353.368530273438 3495.797119140625 1353.368530273438 3495.797119140625 C 1355.088623046875 3497.21337890625 1355.518676757812 3500.015869140625 1354.325805664062 3502.05810546875 Z M 1331.23388671875 3473.311279296875 C 1330.774169921875 3470.310791015625 1329.35986328125 3467.70556640625 1327.251342773438 3465.973876953125 C 1322.895385742188 3462.39208984375 1316.89501953125 3463.68701171875 1313.876586914062 3468.859619140625 C 1310.862060546875 3474.038330078125 1311.9541015625 3481.160888671875 1316.31103515625 3484.738037109375 C 1320.667358398438 3488.31982421875 1326.666748046875 3487.025146484375 1329.684448242188 3481.85107421875 C 1331.144287109375 3479.346923828125 1331.694702148438 3476.3134765625 1331.23388671875 3473.311279296875 Z">
+					</path>
+				</svg>
+				<img id="img_gestion_produit_ba" src="{{ asset('Prototype/Simage/img_gestion_produit_ba.png') }}" srcset="{{ asset('Prototype/Simage/img_gestion_produit_ba.png 1x, Simage/img_gestion_produit_ba@2x.png 2x') }}">
+					
+			</div>
+			<div id="table_bbv">
+				<div class="row">
+					<div class="container col-md-12">
+						<div class="card bg-transparent text-white">
+							<div class="card-header text-center bg-primary text-white">Liste des entrees</div>
+							<div class="card-body">
+								<table class="table table-striped table-bordered">
+									<thead class="thead-dark text-center text-white">
+									<tr>
+										<th scope="col">Identifiant</th>
+										<th scope="col">Produit</th>
+										<th scope="col">Quantite</th>
+										<th scope="col">Date</th>
+									</tr>
+									</thead>
+									{% for s in sorties %}
+									<tr class="text-center text-white">
+										<th scope="row">{{ s.id }}</th>
+										<td>{{ s.produit }}</td>
+										<td>{{ s.qteS }}</td>
+										<td>{{ s.dateS|date('d/m/y') }}</td>
+									</tr>
+									{% endfor %}
+								</table>
+							</div>
+							<div class="card-footer text-dark">LPGL</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="Formulaire_Produit_bck">
+				<svg class="Rectangle_Formulaire_bcl">
+					<rect id="Rectangle_Formulaire_bcl" rx="0" ry="0" x="0" y="0" width="527" height="507">
+					</rect>
+				</svg>
+				<svg class="Rectangle_Form_bcn">
+					<linearGradient id="Rectangle_Form_bcn" spreadMethod="pad" x1="0.5" x2="0.5" y1="1" y2="0">
+						<stop offset="0" stop-color="#0c1318" stop-opacity="1"></stop>
+						<stop offset="1" stop-color="#364753" stop-opacity="1"></stop>
+					</linearGradient>
+					<rect id="Rectangle_Form_bcn" rx="0" ry="0" x="0" y="0" width="527" height="51">
+					</rect>
+				</svg>
+				<div id="Formulaire_Produit_bco">
+					<span>Formulaire vente</span>
+				</div><br><br>
+
+				<div class="row">
+					<div class="container col-md-12">    
+						<div class="card bg-transparent text-white"><br><br>
+							<div class="card-body"><br><br>
+							{% if error_message is defined %}
+								<div class="alert alert-danger">{{ error_message }}</div>
+							{% endif %}
+								{{ form(form) }}
+							</div><br><br><br><br>
+							<div class="card-footer">LPGL</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div id="footer_bc">
+			<svg class="Rectangle_footer_bc">
+				<rect id="Rectangle_footer_bc" rx="45" ry="45" x="0" y="0" width="1620" height="112">
+				</rect>
+			</svg>
+			<svg class="tel_bc" viewBox="970.087 4217.08 116.825 94.839">
+				<path id="tel_bc" d="M 1068.492431640625 4217.080078125 C 1068.492431640625 4217.080078125 988.50048828125 4217.080078125 988.50048828125 4217.080078125 C 978.3338012695312 4217.080078125 970.08740234375 4223.7568359375 970.08740234375 4232.0244140625 C 970.08740234375 4232.0244140625 970.08740234375 4296.974609375 970.08740234375 4296.974609375 C 970.08740234375 4305.2294921875 978.3338012695312 4311.9189453125 988.50048828125 4311.9189453125 C 988.50048828125 4311.9189453125 1068.492431640625 4311.9189453125 1068.492431640625 4311.9189453125 C 1078.666137695312 4311.9189453125 1086.91259765625 4305.2294921875 1086.91259765625 4296.974609375 C 1086.91259765625 4296.974609375 1086.91259765625 4232.0244140625 1086.91259765625 4232.0244140625 C 1086.91259765625 4223.7568359375 1078.666137695312 4217.080078125 1068.492431640625 4217.080078125 Z M 1026.7373046875 4226.9765625 L 1028.017700195312 4243.3359375 L 1023.366882324219 4244.42578125 L 1021.1298828125 4226.53759765625 L 1026.7373046875 4226.9765625 Z M 1046.7080078125 4301.03271484375 C 1046.7080078125 4301.03271484375 1026.30517578125 4300.6953125 1026.30517578125 4300.6953125 C 992.6038818359375 4271.43310546875 998.0960083007812 4237.3984375 998.0960083007812 4237.3984375 L 1013.446716308594 4226.6875 L 1016.470275878906 4226.6875 L 1018.930908203125 4245.40283203125 L 1012.212890625 4249.0234375 L 1029.391357421875 4285.56298828125 L 1036.125122070312 4283.8212890625 L 1049.038208007812 4299.4423828125 L 1046.7080078125 4301.03271484375 Z M 1053.188354492188 4297.55126953125 L 1039.527221679688 4282.1806640625 L 1044.702514648438 4280.376953125 L 1056.613159179688 4294.77001953125 L 1053.188354492188 4297.55126953125 Z">
+				</path>
+			</svg>
+			<img id="whatsapp_bc" src="{{ asset('Prototype/Simage/whatsapp_bc.png') }}" srcset="{{ asset('Prototype/Simage/whatsapp_bc.png 1x, Simage/whatsapp_bc@2x.png 2x') }}">
+				
+			<img id="messenger_bc" src="{{ asset('Prototype/Simage/messenger_bc.png') }}" srcset="{{ asset('Prototype/Simage/messenger_bc.png 1x, Simage/messenger_bc@2x.png 2x') }}">
+				
+			<img id="insta_bc" src="{{ asset('Prototype/Simage/insta_bc.png') }}" srcset="{{ asset('Prototype/Simage/insta_bc.png 1x, Simage/insta_bc@2x.png 2x') }}">
+				
+			<img id="youtube_bc" src="{{ asset('Prototype/Simage/youtube_bc.png') }}" srcset="{{ asset('Prototype/Simage/youtube_bc.png 1x, Simage/youtube_bc@2x.png 2x') }}">
+				
+			<div id="Mahamadou_Issagha_Diop_bc">
+				<span>Mahamadou Issagha Diop</span>
+			</div>
+			<img id="copyright_bc" src="{{ asset('Prototype/Simage/copyright_bc.png') }}" srcset="{{ asset('Prototype/Simage/copyright_bc.png 1x, Simage/copyright_bc@2x.png 2x') }}">
+				
+		</div>
+	</div>
+</div>
+</body>
+</html>

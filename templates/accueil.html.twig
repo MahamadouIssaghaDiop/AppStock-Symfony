@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accueil</title>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{{ asset('Prototype/Acss/Accueil.css') }}"/>
+<script id="applicationScript" type="text/javascript" src="{{ asset('Prototype/Ascript/Accueil.js') }}"></script>
+</head>
+<body>
+<div id="Accueil_">
+	<img id="Calque_1_e" src="{{ asset('Prototype/Aimage/Calque_1_e.png') }}" srcset="{{ asset('Prototype/Aimage/Calque_1_e.png 1x, Aimage/Calque_1_e@2x.png 2x') }}">
+		
+	<div id="Page_accueil_">
+		<div id="menu_fb">
+			<svg class="Rectangle_1_fd">
+				<linearGradient id="Rectangle_1_fd" spreadMethod="pad" x1="0.5" x2="0.5" y1="1" y2="0">
+					<stop offset="0" stop-color="#28343b" stop-opacity="1"></stop>
+					<stop offset="1" stop-color="#004a95" stop-opacity="1"></stop>
+				</linearGradient>
+				<rect id="Rectangle_1_fd" rx="75" ry="75" x="0" y="0" width="1620" height="144">
+				</rect>
+			</svg>
+			<div id="Logo_fe">
+				<span>Logo</span>
+			</div>
+			<img id="logo4-b_ff" src="{{ asset('Prototype/Aimage/logo4-b_ff.png') }}" srcset="{{ asset('Prototype/Aimage/logo4-b_ff.png 1x, Aimage/logo4-b_ff@2x.png 2x') }}">
+			
+			<a class="collapse-item" href="{{ path('accueil')}}">	
+			<div id="Acceuil_fg">
+				<span>Acceuil</span>
+			</div>
+			</a>
+		{% if is_granted('ROLE_VENDEUR') %}
+			<a class="collapse-item" href="{{ path('sortie_liste')}}">
+			<div onclick="application.goToTargetView(event)" id="Produit_fh">
+				<span>Gestion Vente</span>
+			</div>
+			</a>
+		{% endif %}
+		{% if is_granted('ROLE_GESTION_STOCK') %}
+			{# Gestion de Produits #}
+			<a class="collapse-item" href="{{ path('produit_liste')}}">
+			<div onclick="application.goToTargetView(event)" id="Produit_fh">
+				<span>Produit</span>
+			</div>
+			</a>
+
+			<a class="collapse-item" href="{{ path('categorie_liste')}}">
+			<div onclick="application.goToTargetView(event)" id="Categorie_fi">
+				<span>Categorie</span>
+			</div>
+			</a>
+		{% endif %}		
+			<svg class="Rectangle_Profil_fn">
+				<rect id="Rectangle_Profil_fn" rx="20" ry="20" x="-5" y="-10" width="180" height="100">
+				</rect>
+			</svg>
+			<div id="Profil_fo">
+				{% if app.user %}
+				<span>{{ app.user.nom }}<br>{{ app.user.prenom }}</span>
+			{% endif %}
+			</div>
+			<svg class="Rectangle_Log_out_fp">
+				<rect onclick="application.goToTargetView(event)" id="Rectangle_Log_out_fp" rx="20" ry="20" x="0" y="0" width="199" height="50">
+				</rect>
+			</svg>
+			{# button Logout #}
+			<a href="{{path('app_logout')}}">
+			<div id="Log_out__fq">
+				<span>Logout</span><br/>
+			</div>
+			</a>
+		</div>
+		<div id="Accueil_body">
+			<img id="icon-128x128-2_fs" src="{{ asset('Prototype/Aimage/icon-128x128-2_fs.png') }}" srcset="{{ asset('Prototype/Aimage/icon-128x128-2_fs.png 1x, Aimage/icon-128x128-2_fs@2x.png 2x') }}">
+				
+			<div id="AppStock_ft">
+				<span>App</span><span style="color:rgba(255,255,255,1);">Stock</span>
+			</div>
+			{% if is_granted('ROLE_GESTION_STOCK') %}
+				<div onclick="application.goToTargetView(event)" id="Manage_U_fu">
+					<svg class="Rectangle_517_fv">
+						<rect id="Rectangle_517_fv" rx="20" ry="20" x="0" y="0" width="410" height="57">
+						</rect>
+					</svg>
+					<a href="{{path('manage_liste')}}">
+					<div id="Manage_users_fw">
+						<span>Manage users</span>
+					</div>
+					</a>
+					<div id="User_fx">
+						<span><i class="fa-duotone fa-user"></i></span>
+						<i class="fa-regular fa-user"></i>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+		<div id="footer_fy">
+			<svg class="Rectangle_footer_fz">
+				<rect id="Rectangle_footer_fz" rx="45" ry="45" x="0" y="0" width="1620" height="112">
+				</rect>
+			</svg>
+			<svg class="tel_f" viewBox="970.087 977.08 116.825 94.839">
+				<path id="tel_f" d="M 1068.492431640625 977.0800170898438 C 1068.492431640625 977.0800170898438 988.50048828125 977.0800170898438 988.50048828125 977.0800170898438 C 978.3338012695312 977.0800170898438 970.08740234375 983.7568969726562 970.08740234375 992.0247802734375 C 970.08740234375 992.0247802734375 970.08740234375 1056.974853515625 970.08740234375 1056.974853515625 C 970.08740234375 1065.229736328125 978.3338012695312 1071.918823242188 988.50048828125 1071.918823242188 C 988.50048828125 1071.918823242188 1068.492431640625 1071.918823242188 1068.492431640625 1071.918823242188 C 1078.666137695312 1071.918823242188 1086.91259765625 1065.229736328125 1086.91259765625 1056.974853515625 C 1086.91259765625 1056.974853515625 1086.91259765625 992.0247802734375 1086.91259765625 992.0247802734375 C 1086.91259765625 983.7568969726562 1078.666137695312 977.0800170898438 1068.492431640625 977.0800170898438 Z M 1026.7373046875 986.976318359375 L 1028.017700195312 1003.335510253906 L 1023.366882324219 1004.42578125 L 1021.1298828125 986.5377807617188 L 1026.7373046875 986.976318359375 Z M 1046.7080078125 1061.033081054688 C 1046.7080078125 1061.033081054688 1026.30517578125 1060.695556640625 1026.30517578125 1060.695556640625 C 992.6038818359375 1031.433227539062 998.0960083007812 997.398681640625 998.0960083007812 997.398681640625 L 1013.446716308594 986.6879272460938 L 1016.470275878906 986.6879272460938 L 1018.930908203125 1005.402526855469 L 1012.212890625 1009.023071289062 L 1029.391357421875 1045.562744140625 L 1036.125122070312 1043.821655273438 L 1049.038208007812 1059.442504882812 L 1046.7080078125 1061.033081054688 Z M 1053.188354492188 1057.55126953125 L 1039.527221679688 1042.181030273438 L 1044.702514648438 1040.376831054688 L 1056.613159179688 1054.769897460938 L 1053.188354492188 1057.55126953125 Z">
+				</path>
+			</svg>
+			<img id="whatsapp_f" src="{{ asset('Prototype/Aimage/whatsapp_f.png') }}" srcset="{{ asset('Prototype/Aimage/whatsapp_f.png 1x, Aimage/whatsapp_f@2x.png 2x') }}">
+				
+			<img id="messenger_f" src="{{ asset('Prototype/Aimage/messenger_f.png') }}" srcset="{{ asset('Prototype/Aimage/messenger_f.png 1x, Aimage/messenger_f@2x.png 2x') }}">
+				
+			<img id="insta_f" src="{{ asset('Prototype/Aimage/insta_f.png') }}" srcset="{{ asset('Prototype/Aimage/insta_f.png 1x, Aimage/insta_f@2x.png 2x') }}">
+				
+			<img id="youtube_f" src="{{ asset('Prototype/Aimage/youtube_f.png') }}" srcset="{{ asset('Prototype/Aimage/youtube_f.png 1x, Aimage/youtube_f@2x.png 2x') }}">
+				
+			<div id="Mahamadou_Issagha_Diop_f">
+				<span>Mahamadou Issagha Diop</span>
+			</div>
+			<img id="copyright_f" src="{{ asset('Prototype/Aimage/copyright_f.png') }}" srcset="{{ asset('Prototype/Aimage/copyright_f.png 1x, Aimage/copyright_f@2x.png 2x') }}">
+				
+		</div>
+	</div>
+</div>
+</body>
+</html>
