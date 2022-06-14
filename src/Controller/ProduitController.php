@@ -99,6 +99,7 @@ class ProduitController extends AbstractController
             $produit = $entityManager->getRepository(Produit::class)->find($id);
             $produit->setLibelle($p->getLibelle());
             $produit->setQtStock($p->getQtStock());
+            $produit->setCategorie($p->getCategorie());
             $entityManager->flush();
 
 
